@@ -1,0 +1,67 @@
+\contentsline {chapter}{Abstract}{3}
+\contentsline {chapter}{Acknowledgments}{5}
+\contentsline {chapter}{Contents}{7}
+\contentsline {chapter}{List of Figures}{9}
+\contentsline {chapter}{Chapter\ \numberline {1.}{\ }Introduction}{11}
+\contentsline {section}{\numberline {1.1}Aims and Objectives}{12}
+\contentsline {section}{\numberline {1.2}Report Structure}{13}
+\contentsline {chapter}{Chapter\ \numberline {2.}{\ }Background and Motivation}{15}
+\contentsline {section}{\numberline {2.1}Applications of DNA Sequencing}{15}
+\contentsline {section}{\numberline {2.2}The DNA Sequencing Process}{16}
+\contentsline {subsection}{\numberline {2.2.1}The Structure of DNA}{16}
+\contentsline {subsection}{\numberline {2.2.2}DNA Detection Technologies}{17}
+\contentsline {subsection}{\numberline {2.2.3}Assembly Algorithms}{18}
+\contentsline {section}{\numberline {2.3}The Comparison Engine}{19}
+\contentsline {subsection}{\numberline {2.3.1}Complexity Analysis}{20}
+\contentsline {section}{\numberline {2.4}Hardware Acceleration}{21}
+\contentsline {chapter}{Chapter\ \numberline {3.}{\ }Related Work}{23}
+\contentsline {section}{\numberline {3.1}DNA Sequencing}{23}
+\contentsline {section}{\numberline {3.2}FPGA Design}{26}
+\contentsline {section}{\numberline {3.3}Comparable DNA Sequencers}{28}
+\contentsline {chapter}{Chapter\ \numberline {4.}{\ }Design}{31}
+\contentsline {section}{\numberline {4.1}Overview}{31}
+\contentsline {section}{\numberline {4.2}Hardware}{31}
+\contentsline {subsubsection}{Inter-Device Communication Hardware}{33}
+\contentsline {subsubsection}{UART Hardware}{33}
+\contentsline {section}{\numberline {4.3}Device Software}{34}
+\contentsline {subsection}{\numberline {4.3.1}Overview}{34}
+\contentsline {subsection}{\numberline {4.3.2}Data Input Handler}{37}
+\contentsline {subsubsection}{The Master UART Connection}{37}
+\contentsline {subsubsection}{Distribution of Input Data}{38}
+\contentsline {subsubsection}{Data Format Translation}{38}
+\contentsline {subsection}{\numberline {4.3.3}Inter-FPGA Communication}{39}
+\contentsline {subsection}{\numberline {4.3.4}Result Data Handler}{40}
+\contentsline {section}{\numberline {4.4}Host Software}{42}
+\contentsline {chapter}{Chapter\ \numberline {5.}{\ }Implementation}{45}
+\contentsline {subsection}{\numberline {5.0.1}Error Tolerance}{47}
+\contentsline {chapter}{Chapter\ \numberline {6.}{\ }Testing}{49}
+\contentsline {section}{\numberline {6.1}Overview}{49}
+\contentsline {section}{\numberline {6.2}Logical Verification}{49}
+\contentsline {section}{\numberline {6.3}Performance Characteristics}{50}
+\contentsline {subsection}{\numberline {6.3.1}Resource Usage}{50}
+\contentsline {subsubsection}{Logic Utilisation}{50}
+\contentsline {subsubsection}{Memory Utilisation}{51}
+\contentsline {subsection}{\numberline {6.3.2}Speed}{55}
+\contentsline {subsubsection}{Clock Frequency}{55}
+\contentsline {subsection}{\numberline {6.3.3}Cycle Count}{55}
+\contentsline {subsection}{\numberline {6.3.4}Cumulative Speed}{55}
+\contentsline {chapter}{Chapter\ \numberline {7.}{\ }Evaluation}{59}
+\contentsline {section}{\numberline {7.1}Overview}{59}
+\contentsline {section}{\numberline {7.2}Comparison to Benchmark Algorithm}{59}
+\contentsline {subsection}{\numberline {7.2.1}Resource Usage}{59}
+\contentsline {subsection}{\numberline {7.2.2}Speed}{60}
+\contentsline {section}{\numberline {7.3}Comparison to Existing Technology}{61}
+\contentsline {subsection}{\numberline {7.3.1}Scalability of hardware}{62}
+\contentsline {chapter}{Chapter\ \numberline {8.}{\ }Future Work}{65}
+\contentsline {chapter}{Chapter\ \numberline {9.}{\ }Conclusion}{67}
+\contentsline {chapter}{Bibliography}{69}
+\contentsline {chapter}{Appendix\ \numberline {A.}{\ }User Guide}{75}
+\contentsline {section}{\numberline {A.1}Getting the Code}{75}
+\contentsline {section}{\numberline {A.2}Setting up the Hardware}{75}
+\contentsline {section}{\numberline {A.3}Programming the FPGA Devices}{75}
+\contentsline {subsection}{\numberline {A.3.1}Customising the Algorithm}{77}
+\contentsline {subsection}{\numberline {A.3.2}Compiling the Images}{77}
+\contentsline {subsection}{\numberline {A.3.3}Programming the Devices}{77}
+\contentsline {section}{\numberline {A.4}Running The Comparison}{78}
+\contentsline {chapter}{Appendix\ \numberline {B.}{\ }Host Interface Code}{79}
+\contentsline {chapter}{Appendix\ \numberline {C.}{\ }Comparison Engine Parameters}{81}

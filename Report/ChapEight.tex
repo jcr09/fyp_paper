@@ -1,0 +1,43 @@
+\chapter{Future Work}
+\renewcommand{\baselinestretch}{\mystretch}
+\label{chap:futurework}
+%\setlength{\parindent}{0pt}
+
+A primary goal of any future work would be a further scaling of this algorithm. The small scale cluster presented in this report showed the algorithm could successfully accelerate comparison computation. However, this technology could be significantly scaled to larger devices as well as a larger number of devices to further accelerate computation in a practical situation. For example, larger FPGA devices currently on the market would each be able to support on the order of a hundred pixels \cite{altcyc}.
+
+
+Another avenue for future work was raised in the evaluation section. Having introduced the concept of the comparison engine as a matrix of overlap operations it is possible to decompose this system into a set of sub-systems. The ring network currently circulates the data in the pixels around once, comparing all data to each other. However, this could be extended simply to break the ring, feeding new data into the comparison system via the a break in the ring network. In terms of the comparison matrix this would allow computation of a rectangular matrix, a group of these matrices would then be able to combine to produce a single large square comparison matrix as shown below. 
+
+
+\begin{align*}
+\text{Comparison Matrix} &=  \begin{pmatrix}
+  F(a_{1},a_{1}) & F(a_{1},a_{2})  & \cdots & F(a_{1},a_{2n}) \\
+  F(a_{2},a_{1}) & F(a_{2},a_{2})  & \cdots & F(a_{2},a_{2n}) \\
+  \vdots  & \vdots   & \ddots & \vdots   \\
+  F(a_{2n},a_{1}) & F(a_{2n},a_{2}) & \cdots & F(a_{2n},a_{2n}) \\
+ \end{pmatrix}  \\
+ \text{Sub Matrix}_0 &=
+ \begin{pmatrix}
+  F(a_{1},a_{1}) & F(a_{1},a_{2})  & \cdots & F(a_{1},a_{n}) \\
+  F(a_{2},a_{1}) & F(a_{2},a_{2})  & \cdots & F(a_{2},a_{n}) \\
+  \vdots  & \vdots & \ddots & \vdots   \\
+  F(a_{2n},a_{1}) & F(a_{2n},a_{2})  & \cdots & F(a_{2n},a_{n})
+ \end{pmatrix} \\
+\text{Sub Matrix}_1 &=  \begin{pmatrix}
+  F(a_{1},a_{n+1}) & F(a_{1},a_{n+2})  & \cdots & F(a_{1},a_{2n}) \\
+  F(a_{2},a_{n+1}) & F(a_{2},a_{n+2})  & \cdots & F(a_{2},a_{2n}) \\
+  \vdots  & \vdots & \ddots & \vdots   \\
+  F(a_{2n},a_{n+1}) & F(a_{2n},a_{n+2})  & \cdots & F(a_{2n},a_{2n})
+ \end{pmatrix} \\
+ \text{Comparison Matrix} &= \text{Sub Matrix}_0 \parallel \text{Sub Matrix}_1
+\end{align*}
+
+\normalsize
+Using a broken ring network it is possible to feed more data into the comparison engine than there is number of pixels. Each usage of the comparison engine would then produce a rectangular matrix, with the width still set at the number of number of pixels, but the height set at an arbitrary size. 
+
+In order to produce the full matrix of comparison data it is necessary then to either run the comparison engine multiple times, or run multiples comparison engines in parallel using the other pixel data as the home data for each pixel. Either of these solutions mitigates the problem of having a relatively small number of pixels per device by subdividing the problem. The solution of running the same comparison engine twice reduces cost but increases time, and doesn't allow the second run of the algorithm to exploit any delay in the detection. The second solution of multiple comparison engines in parallel works particularly well, as although it is increased cost, it increases parallelism further without the issues of clock speed and data transfer speed limits. This would be a suitable way of further increasing computation power easily. 
+
+
+This change is an important advancement, as the current algorithm places requirements on which comparisons must happen in parallel, which means to decompose a large square comparison matrix into smaller square comparison matrices that are compatible with the algorithm requires some data to processed multiple times. This inefficiency is a significant problem in terms of the speed of the algorithm.
+
+This modification to the algorithm could be done relatively simply, as much of the work has been done. Removing the link between number of pixels present and number of comparison cycles has already been done when scaling the algorithm to multiple FPGAs. The only significant work to do this would be a modification to the input data protocol as it currently only feeds data into pixels with their own current sequence.

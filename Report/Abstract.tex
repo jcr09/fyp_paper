@@ -1,0 +1,8 @@
+
+\renewcommand{\baselinestretch}{1.5}
+\chapter{Abstract}
+\renewcommand{\baselinestretch}{\mystretch}
+
+%\setlength{\parindent}{2em}
+
+Presented in this report is a practical implementation of a scalable comparison engine algorithm for use in a DNA sequencing toolchain. Having shown all-against-all comparison to be a key computational problem in DNA sequencing for short read Next Generation Sequencing, an algorithm designed by Y Hu has been presented as a possible solution. This algorithm was modified and implemented in VHDL for use across a multi-device cluster for the purpose of speeding up comparison through the use of parallelism. The design was implemented on a proof of concept machine consisting of 3 small FPGAs, capable of comparing 27 sequences of any practical length in parallel. A key aim of the project was to minimise any overhead in inter-device communication and this was achieved with only a 2 clock cycle per comparison  increase. A shared clock design was utilised with clock speed maintained at 33.1MHz while scaling across multiple FPGAs with performance unaffected by inter-device communication. Logic overhead introduced by the modifications used up to 4,000 logic elements per device, a minor increase in the total size of the algorithm for large applications. Total performance metrics indicated scaling across 3 FPGAs increased performance to allow 3 times the number of comparisons in parallel whilst retaining 80\% of the comparison speed per processing element. Testing showed the cluster took $42{\mu}s$ per comparison.  A number of further modifications to the algorithm were also suggested to increase performance with minimal cost.

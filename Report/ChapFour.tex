@@ -1,0 +1,13 @@
+\chapter{Design}
+\renewcommand{\baselinestretch}{\mystretch}
+\label{chap:design}
+\section{Overview}
+The structure of this project is split into three sections; the device hardware, the device software, and host software. The device hardware is the organisation of the pre-built FPGA devices into a cluster configuration using custom inter-connectors for the cluster interface. The device software is the program that will be written onto each device and dictates their functionality. The device software comprises the bulk of the project, partitioning the computation into separate devices and handling all communication protocols between the devices. The host software runs on a host machine connected to the cluster and provides all source data for the system as well as receiving all the output data from the cluster system.
+
+
+In this project the available hardware has been the motivating design limitation, and so discussion of the hardware configuration is discussed first, the characteristics of which will motivate the design decisions made in the rest of the design.
+
+%\setlength{\parindent}{0pt}
+\input{ChapFourA.tex} %hardware
+\input{ChapFourB.tex} %software
+\input{ChapFourC.tex} %Host Software

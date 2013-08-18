@@ -1,0 +1,113 @@
+\renewcommand{\baselinestretch}{1.5}
+\chapter{Comparison Engine Parameters}
+\label{App:default}
+
+\lstset{language=python, numbers=left, showspaces=false,
+    showstringspaces=false, tabsize=4, breaklines=true, basicstyle=\tiny, captionpos=b, numbersep=5pt }
+\begin{lstlisting}[frame=single]
+-- file name: parameters.vhd
+-- author: yuanqi hu
+-- email: yuanqi.hu09@imperial.ac.uk
+-- date: 23/08/2011
+-- version: 1.0
+-- abstract: this file list all the parameters need in upper level designs.
+-- called by: all
+-- revision history: Modified by James Rose for Multi-FPGA compatibility
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+PACKAGE parameters IS
+
+	--james added vars
+	CONSTANT FPGA_COUNT        : INTEGER := 3;
+	CONSTANT TOTAL_PIXEL_COUNT   : INTEGER := 27;
+	-------------------pixel parameter----------------------
+	CONSTANT GENOME_LENGTH         : INTEGER := 113;
+	CONSTANT GENOME_WIDTH        : INTEGER := 7; -- width is the width needed to represent the number
+	CONSTANT READ_LENGTH         : INTEGER := 50;
+	CONSTANT READ_WIDTH        : INTEGER := 6;
+	CONSTANT FIX_LENGTH          : INTEGER := 8;
+	CONSTANT FIX_WIDTH         : INTEGER := 3;
+	CONSTANT LOCAL_PIXEL_COUNT   : INTEGER := 9;
+	CONSTANT LOCAL_PIXEL_WIDTH : INTEGER := 4;
+	CONSTANT POOL_SIZE          : INTEGER := 5;
+	CONSTANT redun             : INTEGER := 2;
+	CONSTANT MAX_DISTANCE          : INTEGER := redun + 1;
+	CONSTANT DISTANCE_WIDTH        : INTEGER := 3;
+	CONSTANT OVERLAP_THRESH          : INTEGER := READ_LENGTH - FIX_LENGTH;
+
+	-------------------ram parameter-----------------
+	CONSTANT WORD_WIDTH : INTEGER := 2 * FIX_LENGTH;
+	CONSTANT ADDRESS_WIDTH : INTEGER := 8;
+	CONSTANT HOLD_TIME  : TIME    := 3 NS;
+	CONSTANT SETUP_TIME : TIME    := 3 NS;
+	CONSTANT WIDTH_TIME : TIME    := 20 NS;
+	CONSTANT WP_TIME    : TIME    := 20 NS;
+
+	-------------------timing parameter--------------
+	CONSTANT PERIOD            : TIME    := 20 NS;
+	-------------------buffer parameters------------
+	CONSTANT BUFFER_SIZE       : INTEGER := GENOME_LENGTH * LOCAL_PIXEL_COUNT * 2 - 1;
+	CONSTANT BUFFER_SIZE_BYTES : INTEGER := (GENOME_LENGTH * LOCAL_PIXEL_COUNT * 2 + 4) / 8;
+	-- the following are some subtypes defined for the counters that need a few bits only
+	SUBTYPE STABLE_INT_TYPE IS INTEGER RANGE 0 TO 1; --  WP_TIME/PERIOD+1;
+	SUBTYPE NT_INT_TYPE IS INTEGER RANGE 0 TO 3; --  atcg four kinds of nucleotide
+	SUBTYPE POOL_INT_TYPE IS INTEGER RANGE 0 TO POOL_SIZE;
+	SUBTYPE RD_INT_TYPE IS INTEGER RANGE 0 TO READ_LENGTH;
+	SUBTYPE PIXEL_INT_TYPE IS INTEGER RANGE 0 TO LOCAL_PIXEL_COUNT - 1;
+	SUBTYPE FIX_INT_TYPE IS INTEGER RANGE 0 TO FIX_LENGTH - 1;
+	SUBTYPE EDDI_INT_TYPE IS INTEGER RANGE 0 TO MAX_DISTANCE;
+	SUBTYPE WAIT_INT_TYPE IS INTEGER RANGE 0 TO FIX_LENGTH + 1;
+	SUBTYPE BASE_INT_TYPE IS INTEGER RANGE 0 TO redun + 1;
+	SUBTYPE SHIFT_INT_TYPE IS INTEGER RANGE -redun TO redun;
+
+	----------------------------------------------
+	-- multiple dimension arrays 
+	SUBTYPE OVERLAP IS UNSIGNED(LOCAL_PIXEL_WIDTH + READ_WIDTH - 1 DOWNTO 0);
+	SUBTYPE BASE IS UNSIGNED(1 DOWNTO 0);
+	TYPE ADDR_ARRAY IS ARRAY (NATURAL RANGE <>) OF UNSIGNED(ADDRESS_WIDTH - 1 DOWNTO 0);
+	TYPE WORD_ARRAY IS ARRAY (NATURAL RANGE <>) OF UNSIGNED(WORD_WIDTH - 1 DOWNTO 0);
+	TYPE OVERLAP_vect IS ARRAY (NATURAL RANGE <>) OF OVERLAP;
+	TYPE DNA_SEQUENCE IS ARRAY (NATURAL RANGE <>) OF BASE;
+	TYPE SHORT_READ IS ARRAY (READ_LENGTH - 1 DOWNTO 0) OF BASE;
+	TYPE DATABASE IS ARRAY (LOCAL_PIXEL_COUNT - 1 DOWNTO 0) OF SHORT_READ;
+	TYPE XFIX IS ARRAY (FIX_LENGTH - 1 DOWNTO 0) OF BASE;
+	TYPE XFIX_2 IS ARRAY (FIX_LENGTH * 2 - 1 DOWNTO 0) OF BASE;
+	TYPE OVERLAP_POOL IS ARRAY (POOL_SIZE - 1 DOWNTO 0) OF OVERLAP;
+	TYPE POOL_POSITION IS ARRAY (NATURAL RANGE <>) OF RD_INT_TYPE;
+	TYPE POOL_ROTATION IS ARRAY (NATURAL RANGE <>) OF PIXEL_INT_TYPE;
+	TYPE POOL_SCORE IS ARRAY (NATURAL RANGE <>) OF EDDI_INT_TYPE;
+	TYPE POOL_WAIT IS ARRAY (NATURAL RANGE <>) OF WAIT_INT_TYPE;
+	TYPE NT_ARRAY IS ARRAY (LOCAL_PIXEL_COUNT - 1 DOWNTO 0) OF BASE;
+
+	TYPE BASE_VECT IS ARRAY (redun * 2 - 1 DOWNTO 0) OF BASE_INT_TYPE;
+	TYPE BASE_ARRAY IS ARRAY ((redun + 1) ** 2 - 1 DOWNTO 0) OF BASE_INT_TYPE;
+
+	--storage data types
+	TYPE SEED IS RECORD
+		posi   : RD_INT_TYPE;
+		rota   : PIXEL_INT_TYPE;
+		score  : EDDI_INT_TYPE;
+		chk_wt : WAIT_INT_TYPE;
+		-- shift:    SHIFT_INT_TYPE;
+		bases  : BASE_VECT;
+		lock   : STD_LOGIC;
+	END RECORD;
+	TYPE SEED_POOL IS ARRAY (POOL_SIZE - 1 DOWNTO 0) OF SEED;
+
+	CONSTANT POSI_S : INTEGER := READ_WIDTH;
+	CONSTANT ROTA_S : INTEGER := LOCAL_PIXEL_WIDTH;
+	CONSTANT SCOR_S : INTEGER := DISTANCE_WIDTH;
+	CONSTANT CHEC_S : INTEGER := FIX_WIDTH;
+	CONSTANT BASE_S : INTEGER := DISTANCE_WIDTH; 
+	CONSTANT LOCK_S : INTEGER := 1;
+	CONSTANT WIDT_S : INTEGER := POSI_S+ROTA_S+SCOR_S+CHEC_S+LOCK_S;
+	CONSTANT SEED_TOTAL : INTEGER := WIDT_S + BASE_S*redun*2;
+	CONSTANT OUT_LOCAL_FIFO_SIZE : INTEGER := (SEED_TOTAL*POOL_SIZE+4)/8;
+END PACKAGE parameters;
+
+
+
+\end{lstlisting}

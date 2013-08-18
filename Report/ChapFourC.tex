@@ -1,0 +1,32 @@
+\section{Host Software}
+One of the stated goals of this project was to produce a real-time system and a suggested way to achieve this was through the use of a streaming interface between the DNA detection hardware and assembly algorithm. Compatability with this goal is covered in the device software section of the report covering the UART streaming interface. However, for the purposes of this report and for testing and verification of the project the host software built here will use a fixed data source with generated test data. 
+
+In order to simplify the host side interface with the device software an FTDI cable was used (as covered in the Device Hardware section). The host software has two simple functions, to read data from a text file and transmit it to the UART, and read result data from the UART out to another text file. In order to maximise backwards compatibility and ease of testing, I will adopt the formatting of the input data used by Y Hu in his test bench for the original algorithm. This consists of N lines of M length, where N is the number of pixels and M is the read length, the DNA bases are represented by capital letters; A- Adenine, T- Thymine, C- Cytosine and G- Guanine. An example input file is shown in \ref{listing:example}. This format is a standard format used in a number of tools including the ABySS sequencer and the BLAST sequencer \cite{ABySS}\cite{BLAST}. \\
+
+
+\begin{minipage}{0.8\textwidth}
+
+\begin{center}
+
+ \lstset{numbers=left, showspaces=false, showstringspaces=false, tabsize=4, basicstyle=\tt, breaklines=true, captionpos=b, numbersep=5pt }
+\begin{lstlisting}[ frame=single,caption=Input Data Format Example; 9 Pixels\, Read length 50, label=listing:example]
+ CGAGGGATGTCTCTTGCGTGTCAAACAACTCTCTTTCGTTACTATGCGGG
+ AATTCGTATCAACATATGTCGGGGTTCATATGGACACTATAGGCAGGTGT
+ AGATAGCCGTTTCGAAGTTGAATGACTGTGCCCAGAACGTACTCAGATCC
+ AGACAGCATCAAAGCACACTATTCCCGACCGTAGGGACCTAACGGATTAG
+ ATCGTAGAACCCGAAGACGGAGTTCCCGTAATAGAGCCAAAGTATGTTGT
+ ACACGTGTCTAGCACGGCAAACGGGCCAGGGTCCCTATGGGTAAGGACCG
+ GTCATGCGCCCGTTGAAGGCTTAGTCTAAATTGTATTTAGCACCATGGCT
+ GGATTAAATGCGCATGCAACGGATACTGAACATGGGCAATACGCGTTAAC
+ GACCCGAAGGTTTTCGGCTGCGACTCCAACGACCGTCTGTAGGCTGGATT
+\end{lstlisting}
+
+\end{center}
+\end{minipage}
+
+In order to make this compatible with the streaming interface, this input data must then be converted to binary and re-ordered. The binary translation for each base is as follows: A: 00, T: 01, C: 10, G:11. The streaming interface requires that the data is transferred ordered first by read number, then by pixel count. This translation is done by the code listed in Appendix \ref{App:Host_Software}
+
+Similarly the host software is required to unpack the output data from the FPGA, this is also done through simple python bit manipulation and writes the output to a file, ordering the library data in the same format as it is present on the FPGA local memory. This can then be used to carry out a comparison with the simulated data in the test bench setting or used to recombine the data in a true application of the algorithm. 
+
+This functionality is achieved through a python script that can be run from the command-line, passing in the parameters dictating read length, pixel count and the location of the source data. This script automatically interfaces with the device and prints the result data to a timestamped text file in the destination directory. This code is included in appendix \ref{App:Host_Software} and a guide how to use this is included in the user guide appendix \ref{App:UserGuide}.
+\vspace*{\fill}

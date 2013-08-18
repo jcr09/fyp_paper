@@ -1,0 +1,36 @@
+\chapter{Introduction}
+\renewcommand{\baselinestretch}{\mystretch}
+\label{chap:Intro}
+The last 25 years have seen an ever-increasing demand for fast and efficient Deoxyribonucleic Acid (DNA) sequencing with the development of the field of genomics and large projects such as The Human Genome Project. Practical applications of DNA sequencing have grown massively with sequencing becoming an important technology in fields as diverse as medicine and ecology. As well as growth in the applications of sequencing, there have been significant advances in the technology used. Next Generation Sequencing (NGS) technologies have increased the speed at which sequencing can occur through new parallel technology with high speed digital processing back-ends. These newer sequencing techniques can produce data sets of the order of billions of base pairs; which places requirements on the digital signal processing technologies that form a critical part of the sequencing tool chain.
+
+The NGS technologies that have been developed place restrictions on the how DNA can be efficiently detected and sequenced. The pyrosequencing technology that is commonly used to detect the bases that form the sequence of DNA can be scaled well to small detector sizes and packed relatively densely, fitting up to 1 million pixels on a single chip. The limitation of these methods however, is that they are relatively slow with each base taking up to 4 seconds to detect \cite{rothberg2011integrated}. As a result the only way to sequence long DNA patterns is to split them into smaller sub-sequences for detection. This leaves a problem to be solved in the digital processing back-end of the sequencer \cite{shendure2008next}. The resultant data is a large number of short sequences, the order of which is unknown. In order to overcome this signal processing problem a comparison engine is required to detect overlaps in the sequences and produce a profile of the data which can then be used to repair the sub-sequences into one full sequence. 
+
+
+In this report a novel method of DNA sub-sequence assembly will be introduced. Based on the algorithm produced by Y Hu et al. a scalable Field Programmable Gate Array (FPGA) cluster will be developed with the intention of speeding up the DNA sequencing process to the point where real-time DNA sequencing is possible. The design will be motivated by the specific properties of modern NGS systems and will be specified in a manner that allows it to be dropped in to a tool-chain with minimal adaptation. Within this project an example cluster will be developed and robustly tested as a proof of concept, while algorithms will be designed to allow for maximal scalability. Testing will be used to quantify the power of the system at given specifications and compared to both the original simulated algorithm by Y Hu and other available algorithms.
+
+
+\section{Aims and Objectives}
+The primary aim of this project is to modify an existing comparison engine algorithm to map onto a cluster of FPGAs. This involves designing a custom hardware set up of multiple interconnected devices suitable for off-loading the computationally expensive DNA sequence comparison. The key deliverable from this objective will be a framework of FPGA hardware, Hardware Description Language (HDL) code, and Host interface software. This will be accompanied by a user guide attached to this report as appendix \ref{App:UserGuide}. The evaluation of whether this objective has been achieved will be covered in the testing section with a set of tests to confirm the operation of the system as well as evaluating its functionality performance towards the key aim of being a real-time solution.
+
+As a sub-objective, the design delivered for the primary goal should be structured such that it can be easily implemented on alternative hardware applications for different scales of problem size. Efficiency and performance are key metrics of success in the project and these will be evaluated in chapter \ref{chap:evaluation} using both simulated result for the adopted algorithm as well as other algorithms discussed in the related work section. The real-time nature of the system will be discussed and any limiting factors should be identified.
+
+
+Part of the objective of the system is its performance is comparable with that of current solutions, particularly in comparison to the freely available sequencing tools available such as ABySS. This objective will be evaluated through tests comparing the algorithm with software solutions introduced in the related work section.
+
+\pagebreak
+\section{Report Structure}
+Chapter two of this report introduces the area of DNA sequencing, and the tools that are used. In particular it introduces a comparison engine algorithm that will be adopted to speed up the sequencing process and analyses the scalability of this algorithm respect to different parameters. 
+
+Chapter three looks at the different techniques currently being developed in DNA sequencing and FPGA based design. Particular emphasis will be placed on FPGA based comparison engine algorithms and any techniques they use that could be adopted as part of this project. 
+
+Chapter four describes the important design aspects of this project, focusing on areas of particular complexity and interest. Split between the hardware setup, algorithmic implementation and host computer based interface. This section comprises the bulk of the new work presented in this report.
+
+Chapter five covers any challenges that were met when transferring the design from simulation to application and the limitations these problems may introduce on scalability of the project. The majority of this section focuses on the issues encountered in a shared clock system.
+
+Chapter six details a number of methods of testing the project, using simulation and real-world tests. Presenting both the raw data of results and graphed details of important variables and cost functions. 
+
+Chapter 7 evaluates the test data in terms of the existing work in the area and the code the project was based on, conclusions will be drawn on how the algorithm would scale to other implementations and how this could be achieved. 
+
+Chapter 8 expands upon the conclusions of the evaluation, suggesting possible further modifications that could be implemented to further improve the algorithm and the problem sizes this algorithm can process.
+
+Chapter 9 finally summarises the conclusions from the project, giving the key performance metrics and revisits the aims and objectives giving a summary of to what extent each was met.

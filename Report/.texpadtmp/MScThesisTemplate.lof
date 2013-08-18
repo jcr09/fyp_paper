@@ -1,0 +1,41 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The Structure of DNA \cite {USLoM}\relax }}{16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pyrosequencing, Diagram by Y Hu \cite {hu2012cmos}\relax }}{17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Y Hu's Comparison Engine\relax }}{20}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Performance of all implementations in frames per second for SAD, 2D Convolution, and correntropy at all kernel sizes tested on 720p images. \cite {Fowers:2012:PEC:2145694.2145704}\relax }}{22}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Achieved Speedup with the FAssem Algorithm \cite {varma2013fassem}, PE - Processing Element\relax }}{25}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Recofigurable systems; Adapted from \cite {compton2002reconfigurable} “(a) External stand-alone processing unit (b) Attached processing unit (c) Co-processor (d) Reconﬁgurable functional unit (e) Processor embedded in a reconﬁgurable fabric” \cite {todman2005reconfigurable}\relax }}{27}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comparison of Runtime and RAM usage for Sequencing Algorithms \cite {lin2011comparative}\relax }}{29}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Terasic DE0 FPGA Board\relax }}{32}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Inter-FPGA Communication Hardware Setup\relax }}{33}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Top Level Diagram, 1 Host, R-1 Slave Devices\relax }}{36}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces UART Interface Protocol\relax }}{37}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Input Delay System Example for 3 Devices\relax }}{38}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Input Adaptor, N$_{LP}$-Number of Local Pixels, N$_{TP}$-Number of Total Pixels\relax }}{39}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Algorithm Global Controller Finite State Machine\relax }}{40}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Output Width Adaptor\relax }}{41}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hardware Implementation\relax }}{45}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Error Tolerance for the Comparison Engine \cite {hu2012cmos}\relax }}{47}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Resource Utilisation Scaling with Device Count\relax }}{53}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Resource Utilisation Scaling with Pixel Count\relax }}{53}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Resource Utilisation Scaling with Read Length\relax }}{54}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Resource Utilisation Scaling with Library Size\relax }}{54}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Single Comparison Cycle. Left: Single FPGA Simulation; 29 Clock Cycles per Comparison Cycle. Right: 3 FPGA Cluster Simulation; 35 Clock Cycles per Comparison Cycle\relax }}{57}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Scaling of Algorithm with Cluster Size\relax }}{62}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Hardware Implementation\relax }}{76}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Inter-FPGA Communication Hardware Setup\relax }}{76}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

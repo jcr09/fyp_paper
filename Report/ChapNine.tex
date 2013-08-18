@@ -1,0 +1,18 @@
+\chapter{Conclusion}
+\renewcommand{\baselinestretch}{\mystretch}
+\label{chap:conclusion}
+%\setlength{\parindent}{0pt}
+In conclusion, a comparison engine architecture has been successfully implemented on a cluster of FPGAs, with a full testing regime verifying its operation. Fitting up to 27 parallel processing units on 3 low-cost DE0 board the cluster significant success has been seen in the area of real-time processing. With tests showing a full set of all-against-all comparisons being carried out in only 31~ms the objective of producing a machine capable of real-time processing has been significantly fulfilled for small sized problem sets in the order of thousands of base pairs. This substantially fulfils the main objective of this project, with the deliverable framework of code and hardware set-up successfully built and documented.
+
+
+The design of this multi-FPGA comparison system has successfully showed scaling computation across multiple devices. The ability to exploit the detection time of DNA detection circuitry was enabled through the implementation of a streaming interface and the use of full sequence buffering has been enabled with minimal effect on device size through the use of onboard memory. The device interface is completely platform independent with the use of a universal asynchronous receiver/transmitter block handling all external communications. The interface software also support multiple platforms, having been implemented in Python.
+
+Limitations of the algorithm have been discussed with the impact of both implementation problems such as clock skew, and digital design limitations with the impact of a two cycle delay per FPGA. A practical approach to finding these limits involved both initial estimates using velocity factors of transmission wires, as well as practical tests with modifications to the onboard clock generator. There is a balance between the maximum achievable clock speed and number of devices within the cluster that must be found, as lowering clock speeds impact the power of the system significantly. For tests with small clusters the internal algorithm frequency limits of 31MHz proved to be a limiting factor, and theory dictates up to dozens of FPGAs could be used in a cluster before significant impact of inter-FGPA communication on clock speed. Values calculated in the implementation section indicated the cluster could be significantly extended before clock speed is lowered.
+
+
+The multi-FPGA cluster overcomes the traditional limits of size on single chips. The interface logic introduces a roughly 4,000 logic element overhead which does not scale with algorithm size, and is relatively small compared to larger devices capable of fitting up to 100,000 logic elements on a single chip. This design favours small clusters of large devices forming clusters over large clusters of small devices. 
+
+When comparing the algorithm with current sequencing solutions a significant difference in scale was found. The testing of other algorithms tended to focus on very high end hardware and as a result saw much better performance. This indicated that for a true real-time solution a more expensive FPGA cluster may need to be designed. Although considering the hardware available, the comparison engine has showed fast results for smaller problem sizes. 
+
+
+Finally, further work was identified with a recommendation that a small change in the current structure of the algorithm could allow the processing of much larger data sets in a more efficient manner. The current all-against-all processing element structure has been shown to be limiting for large problem sizes due to the amount of repeated work that may be necessary when processing large data sets.

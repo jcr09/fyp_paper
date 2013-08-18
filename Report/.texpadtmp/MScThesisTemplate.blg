@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MScThesisTemplate.aux
+The style file: ../IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ../IEEEabrv.bib
+Database file #2: ../MyCollection.bib
+I was expecting a `,' or a `}'---line 246 of file ../MyCollection.bib
+ :  
+ :  Bdsk-Url-1 = {http://pdf.secdatabase.com/2347/0000950123-11-101537.pdf}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 264 of file ../MyCollection.bib
+ : @inproceedings{hu2012cmos
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 292 of file ../MyCollection.bib
+ : @article{rothberg2011integrated
+ :                                ,
+I'm skipping whatever remains of this entry
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in liu2012pasqual
+
+Done.
+You've used 41 entries,
+            4039 wiz_defined-function locations,
+            1374 strings with 21429 characters,
+and the built_in function-call counts, 28836 in all, are:
+= -- 2271
+> -- 721
+< -- 221
++ -- 387
+- -- 133
+* -- 1339
+:= -- 4322
+add.period$ -- 89
+call.type$ -- 41
+change.case$ -- 41
+chr.to.int$ -- 495
+cite$ -- 42
+duplicate$ -- 2114
+empty$ -- 2367
+format.name$ -- 161
+if$ -- 6608
+int.to.chr$ -- 0
+int.to.str$ -- 41
+missing$ -- 404
+newline$ -- 174
+num.names$ -- 41
+pop$ -- 1028
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 2213
+stack$ -- 0
+substring$ -- 1222
+swap$ -- 1665
+text.length$ -- 56
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 41
+warning$ -- 1
+while$ -- 127
+width$ -- 43
+write$ -- 420
+(There were 3 error messages)
