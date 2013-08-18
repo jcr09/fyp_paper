@@ -436,6 +436,7 @@ As covered in the resource utilisation section the logic utilisation scales line
 
 There are two further limitations to the design scalability of this architecture; the first being the practical clock synchronisation limits, and the second being the processing delay introduced to the algorithm by inter-FPGA communications. 
 
+Theoretical calculations on the impact of clock-skew across devices indicates that up to 250~MHz Fmax could be acheived, however in practical tests this is limited. The Fmax of the pixel level design reaches 30~MHz, and on the 3 device cluster this proved the limiting factor. This is a key area where practical tests are necessary for proper clock freqeuncy setting. This cross device synchronisation in a practical setting would however, likely be the limiting factor on size of cluster. This indicates small clusters are preferable to larger clusters of less powerful devices.
 Due to the synchronisation of data between devices each extra device requires a 2 clock cycle delay to be added to each comparison cycle. This means that whilst more pixels can be added, the existing pixels run marginally slower, this produces an effect which diminishes the returns on added extra hardware as shown in figure \cite{fig:scale}.
 
 
@@ -448,9 +449,13 @@ Due to the synchronisation of data between devices each extra device requires a 
     \label{fig:scale}
 \end{figure}
 
+
 \subsection{Application to Large Problem Sizes}
 
-The design of the pixel-based algorithm is such that an all-against-all comparison can only be executed in a symmetrical way, where every pixel is compared only against strings that have their own local pixels. This can be considered in matrix form, where hte algorithm is only capable of peforming a square matrix of comparisons with each entry in the matrix representing the row's string compared to the columns's string. A limitation of this algorithm therefore, is that larger comparison matrices cannot be decomposed into non-overlapping square submatrices that can be computed with this algorithm, only the leading diagonal of the larger matrix can be computed without duplicated effort. For this reaosn the algorithm is limited to comparisons with only the number of input strings equal to the number of computational pixels. A future development of this algorithm could however, break the ring network loop and feed in extra data, allowing for an arbitrary sized rectangular matrix of comparisons to be performed. This would allow non-dunplication of work with only minor modifications to the core algorithm.
+The design of the pixel-based algorithm is such that an all-against-all comparison can only be executed in a symmetrical way, where every pixel is compared only against strings that have their own local pixels. This can be considered in matrix form, where hte algorithm is only capable of peforming a square matrix of comparisons with each part of the matrix is a comparison between two strings, each column is represented by a pixel and each row is a sequence. A limitation of this algorithm therefore, is that larger comparison matrices cannot be decomposed into non-overlapping square submatrices that can be computed with this algorithm, only the leading diagonal of the larger matrix can be computed without duplicated effort.
+
+
+For this reaosn the algorithm is limited to comparisons with only the number of input strings equal to the number of computational pixels. A future development of this algorithm could however, break the ring network loop and feed in extra data, allowing for an arbitrary sized rectangular matrix of comparisons to be performed. A large part of this work is completed, as the way work is split across the multiple devices is to decompose the matrix into equal size rectangular matrices which retain the original height and therefore the same number of local comparisons but with fewer pixels. This would allow non-duplication of work with only minor modifications to the core algorithm.
 % Reminder: the "draftcls" or "draftclsnofoot", not "draft", class option
 % should be used if it is desired that the figures are to be displayed while
 % in draft mode.
