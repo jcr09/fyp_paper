@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.11.20)  16 JUL 2013 14:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.11.20)  18 AUG 2013 19:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -521,7 +521,7 @@ Package: cite 2010/09/10  v 5.3
 \tmplen=\skip73
 \matFigX=\skip74
 \matFigY=\skip75
- (/Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.aux
+ (/Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.aux
 
 LaTeX Warning: Label `fig:pyro' multiply defined.
 
@@ -629,11 +629,11 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros (./TitlePage.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )) [1
@@ -646,11 +646,11 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 ]) [5] [6
 
-] (/Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.toc [7])
+] (/Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.toc [7])
 \tf@toc=\write4
 \openout4 = `MScThesisTemplate.toc'.
 
- [8] (/Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.lof
+ [8] (/Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.lof
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -952,7 +952,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67
 
-]) (./RefList.tex (/Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.bbl [68] [69
+]) (./RefList.tex (/Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.bbl [68] [69
 
 ]
 Overfull \hbox (5.91667pt too wide) in paragraph at lines 95--99
@@ -1015,21 +1015,21 @@ Underfull \vbox (badness 3503) has occurred while \output is active []
 
  [81
 
-]) [82] (/Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.aux)
+]) [82] (/Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  15920 strings out of 493488
- 281358 string characters out of 3141325
+ 281410 string characters out of 3141325
  589595 words of memory out of 3000000
  18790 multiletter control sequences out of 15000+200000
  14447 words of font info for 53 fonts, out of 3000000 for 9000
  958 hyphenation exceptions out of 8191
  63i,16n,96p,1584b,1702s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/jamesrose/Documents/Project/Report/Report/.texpadtmp/MScThesisTemplate.pdf (82 pages, 2241124 bytes).
+Output written on /Users/jamesrose/Documents/Project/conference/Report/.texpadtmp/MScThesisTemplate.pdf (82 pages, 2243262 bytes).
 PDF statistics:
  574 PDF objects out of 1000 (max. 8388607)
  398 compressed objects within 4 object streams
